@@ -35,23 +35,5 @@ class CardInfo(Creator):
         INSERT INTO "Banking" (user, balance)
         VALUES (?, ?)""", (self.holder, self.balance))
         connection.commit()
-        connection.close()
         
 
-#CardInfo.create_banking_table()
-
-""" type = input("Please enter your card type: ")
-number = input("Please enter your card number: ")
-cvc = input("Please enter your card cvc: ")
-holder = input("Please enter the card holder's name: ")
-balance = input("Please enter a balance amount to load onto our app: ")
-
-# IT FREAKING WORKS.
-
-
-newuser = CardInfo(type, number, cvc, holder, balance)
-
-newuser.new_user_card() """
-
-
-CardInfo.validate()
