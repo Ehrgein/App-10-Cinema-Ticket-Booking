@@ -114,21 +114,21 @@ class PdfTicket:
 free = Seat("free", "seats")
 free.is_free()
 
-# For new users
+# For new users, comment the below inputs if not a new user
 
-# cardtype = input("Enter your card type: ")
-# cardnumber = input("Enter your card number: ")
-# cvc = input("Enter your card's security code:") 
-# holder = input("Name displayed on your card: ")
-# balance = input("Credit amount you 'd like to use: ")
-# cardinfo = CardInfo(cardtype, cardnumber, cvc, holder, balance)
- 
+cardtype = input("Enter your card type: ")
+cardnumber = input("Enter your card number: ")
+cvc = input("Enter your card's security code: ") 
+holder = input("Name displayed on your card: ")
+balance = input("Credit amount you 'd like to use: ")
+cardinfo = CardInfo(cardtype, cardnumber, cvc, holder, balance)
+cardinfo.new_user_card() 
+
 # For already registered Users
 
 seat = input("Enter your preffered seat:")
 name = input("Enter your username: ")
 buytick = Seat(seat, name)
-
 
 buytick.availability()
 
