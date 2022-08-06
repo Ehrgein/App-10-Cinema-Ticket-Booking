@@ -1,4 +1,3 @@
-from ast import While
 import sqlite3
 import webbrowser
 from fpdf import FPDF
