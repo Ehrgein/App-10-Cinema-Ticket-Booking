@@ -34,7 +34,7 @@ class Seat(Creator):
         if self.seatavail == 0:
             return self.buy_ticket()
         else:
-            return "Seat is occupied, please try another seat"
+            return print("Seat is occupied, please try another seat")
         
 
 
