@@ -16,7 +16,6 @@ class CardInfo(Creator):
         self.balance = balance
 
 
-    
     def new_user_card(self):
 
         connection = self.database
@@ -26,7 +25,7 @@ class CardInfo(Creator):
         VALUES (?, ?, ?, ?, ?)""", (self.type, self.number, 
         self.cvc, self.holder, self.balance))
         connection.commit()
-        return self.banking_user()
+        self.banking_user()
         
 
     def banking_user(self):

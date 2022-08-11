@@ -18,9 +18,8 @@ class Seat(Creator):
         SELECT "seat_id" FROM "Seat" WHERE "taken"==0
         """)
         result = cursor.fetchall()
-        return print("The following seats are free!: " + str(result))
+        print("The following seats are free!: " + str(result))
   
-
 
     def availability(self):
         
@@ -31,12 +30,10 @@ class Seat(Creator):
         """, [self.seat])
         self.seatavail = cursor.fetchall()[0][0]
         if self.seatavail == 0:
-            return self.buy_ticket()
+            self.buy_ticket()
         else:
-            return print("Seat is occupied, please try another seat")
+            print("Seat is occupied, please try another seat")
         
-
-
 
     def buy_ticket(self):
         connection = self.database
@@ -55,7 +52,7 @@ class Seat(Creator):
         else: 
             print("Not enough balance")
         
-        return self.banking_operations()
+        self.banking_operations()
 
 
     def banking_operations(self):
@@ -68,8 +65,9 @@ class Seat(Creator):
         connection.commit()
         ticket =  PdfTicket(self.name, self.ticketprice, self.seat, newbalance)
         ticket.generate()
-        return print("Generating ticket...")
+        print("Generating ticket...")
     
+
 
 class PdfTicket:
 
@@ -124,12 +122,13 @@ balance = input("Credit amount you 'd like to use: ")
 cardinfo = CardInfo(cardtype, cardnumber, cvc, holder, balance)
 cardinfo.new_user_card() 
 
+
 # For already registered Users
 
 seat = input("Enter your preffered seat:")
 name = input("Enter your username: ")
 buytick = Seat(seat, name)
 
-buytick.availability()
+buytick.availability() 
 
 
